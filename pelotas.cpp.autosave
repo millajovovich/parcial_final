@@ -1,0 +1,16 @@
+#include "pelotas.h"
+
+pelotas::pelotas()
+{
+    
+}
+
+QRectF pelotas::boundingRect() const
+{
+    
+}
+
+void pelotas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    
+}

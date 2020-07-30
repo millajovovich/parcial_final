@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     Scene= new QGraphicsScene;
     ui->graphicsView->setScene(Scene);
-    Scene->setSceneRect(-200,-200,400,400);
+    Scene->setSceneRect(-300,-250,600,500);
     Scene->addRect(Scene->sceneRect());
 
     //              TIEMPO
@@ -17,17 +17,11 @@ MainWindow::MainWindow(QWidget *parent) :
     timer->stop();
     connect(timer,SIGNAL(timeout()),this,SLOT(Mover()));
 
-    //             ACTIVIDAD 1
-    astros.append(new planetas(0,0,0,0,70000,300));
-    astros.append(new planetas(0,7000,2,0,70,120));
-    astros.append(new planetas(4000,-5000,1.6,1.2,25,100));
-
-
-    /*astros.append(new planetas(0,0,0,0,50000,300));
-    astros.append(new planetas(5000,0,0,-2,70,150));
-    astros.append(new planetas(-5000,0,0,2,70,150));
-    astros.append(new planetas(0,5000,2,0,70,150));
-    astros.append(new planetas(0,-5000,-2,0,70,150));*/
+    astros.append(new planetas(0    ,0    ,0  ,0  ,50000,200));
+    astros.append(new planetas(5000 ,0    ,0  ,-2 ,70   ,70));
+    astros.append(new planetas(-5000,0    ,0  ,2  ,70   ,70));
+    astros.append(new planetas(0    ,5000 ,2  ,0  ,70   ,70));
+    astros.append(new planetas(0    ,-5000,-2 ,0  ,70   ,70));
 
     //      FOR PARA COLOCAR EN SCENA Y EN UNA LISTA
     for( int i=0; i<astros.size();i++ ){

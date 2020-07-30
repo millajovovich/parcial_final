@@ -26,7 +26,7 @@ private:
     QGraphicsScene *Scene;
     QTimer *timer;
     planetas *cuerpo;
-    double tiempo;
+    int tiempo;
     QList <planetas*> astros;
 
 };
