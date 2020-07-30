@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     timer->stop();
     connect(timer,SIGNAL(timeout()),this,SLOT(Mover()));
 
+    //   CREACION DE LOS PLANETAS
     astros.append(new planetas(0    ,0    ,0  ,0  ,50000,200));
     astros.append(new planetas(5000 ,0    ,0  ,-2 ,70   ,70));
     astros.append(new planetas(-5000,0    ,0  ,2  ,70   ,70));
@@ -39,6 +40,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::Mover()
 {
+    // FOR MOVIMIENTO BOLAS
     for ( int i = 0; i< bolas.size(); i++ ){
         bolas.at(i)->movimiento();
     }
@@ -50,7 +52,7 @@ void MainWindow::Mover()
             }
         }
     }
-
+    // FOR ELIMINACION DE LAS BOLAS
     for ( int i = 0; i< bolas.size(); i++ ){
         if ( bolas.at(i)->getDestruccion() == true ){
             Scene->removeItem( bolas.at(i) );
@@ -63,6 +65,8 @@ void MainWindow::Mover()
     //      FOR PARA ACTUALIZAR
     for (int i=0; i< astros.size(); i++){
         astros.at(i)->iteracion(tiempo);
+        Scene->removeItem( astros.at(i) );
+        Scene->addItem(astros.at(i));
     }
 }
 

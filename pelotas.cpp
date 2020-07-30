@@ -8,8 +8,9 @@ bool pelotas::getDestruccion() const
 
 pelotas::pelotas()
 {
+    // GENERACION DE POSICION EN Y Y X ALEATORIA
     g = rand()%5+1;
-    posx = rand()%550-280;
+    posx = rand()%500-240;
     posy = 250;
     setPos( posx, -posy );
 }
@@ -19,7 +20,7 @@ void pelotas::movimiento()
     vy = vy - g *0.05;
     posy += vy*0.05 - g*0.05*0.05;
 
-
+    // REBOTE CON EL PISO
     if ( posy <= -240 ){
         vy = -vy;
         posy = -240;
@@ -27,6 +28,7 @@ void pelotas::movimiento()
 
     setPos(posx, -posy);
 
+    //   PARA COLISIONES CON LOS PLANETAS
     QList<QGraphicsItem *> colliding_items = collidingItems();  // para la colision con disparo
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
@@ -46,6 +48,6 @@ QRectF pelotas::boundingRect() const
 
 void pelotas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::red);
+    painter->setBrush(Qt::black);
     painter->drawEllipse(boundingRect());
 }

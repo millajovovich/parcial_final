@@ -12,7 +12,7 @@ planetas::planetas(double x, double y, double _vx, double _vy, double _masa, dou
     vx = _vx;
     vy = _vy;
     masa = _masa;
-    radio = _radio;
+    radio = _radio*3;
 }
 
 double planetas::getPosx() const
@@ -61,7 +61,7 @@ void planetas::iteracion(double tiempo)     //      PARA ACTUALIZAR LAS POSICION
 
 QRectF planetas::boundingRect() const
 {
-    return QRectF(-1*escala*radio,-1*escala*radio,2*escala*radio,2*escala*radio);
+    return QRectF(-escala*radio/2,-escala*radio/2,escala*radio,escala*radio);
 }
 
 void planetas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

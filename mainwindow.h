@@ -19,10 +19,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btnSimular_clicked();
-    void Mover();                           // ACTUALIZAR
+    void Mover();                           // ACTUALIZAR POSICIONES
 
-    void on_poner_clicked();
+    void on_btnSimular_clicked();
+    void on_poner_clicked();                // PARA PONER PELOTAS
 
 private:
     Ui::MainWindow *ui;
