@@ -11,7 +11,9 @@ class planetas: public QGraphicsItem
     double angulo=0,posy ,posx , vx, vy, Ax=0, Ay=0, masa, radio , dist;
     double G = 1;     //6.67384*pow( 10 ,-11);
     double delta=0.1;
+
     int r=20;
+    int color = rand()%5;
 
 public:
     ~planetas();

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include <QGraphicsScene>
 #include <planetas.h>
+#include <pelotas.h>
 #include <QMainWindow>
 #include <QTimer>
 
@@ -21,6 +22,8 @@ private slots:
     void on_btnSimular_clicked();
     void Mover();                           // ACTUALIZAR
 
+    void on_poner_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Scene;
@@ -28,6 +31,7 @@ private:
     planetas *cuerpo;
     int tiempo;
     QList <planetas*> astros;
+    QList <pelotas*>  bolas;
 
 };
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>717</width>
-    <height>600</height>
+    <width>705</width>
+    <height>566</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,23 +18,36 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
-      <width>700</width>
-      <height>500</height>
+      <y>10</y>
+      <width>610</width>
+      <height>510</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="btnSimular">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>620</x>
       <y>10</y>
-      <width>701</width>
-      <height>31</height>
+      <width>81</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>empezar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="poner">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>40</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>poner pelota</string>
     </property>
    </widget>
   </widget>
@@ -43,7 +56,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>717</width>
+     <width>705</width>
      <height>21</height>
     </rect>
    </property>

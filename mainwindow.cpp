@@ -35,10 +35,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_btnSimular_clicked()//          PARA EMPEZAR LA SIMULACION
-{
-    timer->start(tiempo);
-}
+
 
 void MainWindow::Mover()
 {
@@ -51,8 +48,29 @@ void MainWindow::Mover()
         }
     }
 
+    for ( int i = 0; i< bolas.size(); i++ ){
+        bolas.at(i)->movimiento();
+        if ( bolas.at(i)->getDestruccion() == true ){
+            Scene->removeItem( bolas.at(i) );
+            delete bolas.at(i);
+            bolas.removeOne(bolas.at(i));
+        }
+    }
+
+
     //      FOR PARA ACTUALIZAR
     for (int i=0; i< astros.size(); i++){
         astros.at(i)->iteracion(tiempo);
     }
+}
+
+void MainWindow::on_btnSimular_clicked()//          PARA EMPEZAR LA SIMULACION
+{
+    timer->start(tiempo);
+}
+
+void MainWindow::on_poner_clicked()
+{
+    bolas.push_back( new pelotas );
+    Scene->addItem( bolas.back() );
 }

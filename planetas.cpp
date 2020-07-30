@@ -1,9 +1,10 @@
 #include "planetas.h"
+#include "pelotas.h"
 
 planetas::~planetas()
 {   }
 
-planetas::planetas(double x, double y, double _vx, double _vy, double _masa, double _radio): escala(0.04)
+planetas::planetas(double x, double y, double _vx, double _vy, double _masa, double _radio): escala(0.1)
 {
     posx = x;
     posy = y;
@@ -46,6 +47,14 @@ void planetas::iteracion(double tiempo)     //      PARA ACTUALIZAR LAS POSICION
     setPos( posx*escala, posy*escala );
     Ax=0;
     Ay=0;
+
+    QList<QGraphicsItem *> colliding_items = collidingItems();  // para la colision con disparo
+    for (int i = 0, n = colliding_items.size(); i < n; ++i)
+    {
+        if (typeid(*(colliding_items[i])) == typeid(pelotas) ){
+            color = rand()%5;
+        }
+    }
 }
 
 QRectF planetas::boundingRect() const
@@ -55,11 +64,24 @@ QRectF planetas::boundingRect() const
 
 void planetas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    if (radio == 150){                      // PARA LOS PLANETAS PEQUEÑOS
+    if ( color == 0){
+        painter->setBrush(Qt::yellow);
+        painter->drawEllipse(boundingRect());
+    }
+    else if ( color == 1 ){
+        painter->setBrush(Qt::black);
+        painter->drawEllipse(boundingRect());
+    }
+    else if ( color == 2 ){
         painter->setBrush(Qt::blue);
         painter->drawEllipse(boundingRect());
     }
-    else
-        painter->setBrush(Qt::yellow);
+    else if ( color == 3 ){
+        painter->setBrush(Qt::red);
         painter->drawEllipse(boundingRect());
+    }
+    else if ( color == 4 ){
+        painter->setBrush(Qt::green);
+        painter->drawEllipse(boundingRect());
+    }
 }
