@@ -11,26 +11,31 @@ pelotas::pelotas()
     g = rand()%5+1;
     posx = rand()%550-280;
     posy = 250;
-    setPos( posx, posy );
+    setPos( posx, -posy );
 }
 
 void pelotas::movimiento()
 {
-    vy = vy - g *0.2;
-    posy += vy*0.2 - g*0.2*0.2;
+    vy = vy - g *0.05;
+    posy += vy*0.05 - g*0.05*0.05;
+
+
+    if ( posy <= -240 ){
+        vy = -vy;
+        posy = -240;
+    }
 
     setPos(posx, -posy);
-
-    if ( posy <= 240 ){
-        vy = -vy;
-    }
 
     QList<QGraphicsItem *> colliding_items = collidingItems();  // para la colision con disparo
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
         if (typeid(*(colliding_items[i])) == typeid(planetas) ){
-            destruccion = 1;
+            count++;
         }
+    }
+    if ( count >= 3 ){
+        destruccion = 1;
     }
 }
 

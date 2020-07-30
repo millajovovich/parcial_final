@@ -39,6 +39,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::Mover()
 {
+    for ( int i = 0; i< bolas.size(); i++ ){
+        bolas.at(i)->movimiento();
+    }
     //      FOR PARA CALCULAR LAS ACELERACIONES
     for (int i=0 ; i <astros.size();i++){
         for (int j=0; j< astros.size();j++){
@@ -49,7 +52,6 @@ void MainWindow::Mover()
     }
 
     for ( int i = 0; i< bolas.size(); i++ ){
-        bolas.at(i)->movimiento();
         if ( bolas.at(i)->getDestruccion() == true ){
             Scene->removeItem( bolas.at(i) );
             delete bolas.at(i);

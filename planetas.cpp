@@ -4,8 +4,9 @@
 planetas::~planetas()
 {   }
 
-planetas::planetas(double x, double y, double _vx, double _vy, double _masa, double _radio): escala(0.1)
+planetas::planetas(double x, double y, double _vx, double _vy, double _masa, double _radio): escala(0.045)
 {
+    color = rand()%5;
     posx = x;
     posy = y;
     vx = _vx;
@@ -44,7 +45,6 @@ void planetas::iteracion(double tiempo)     //      PARA ACTUALIZAR LAS POSICION
     vy = vy + Ay*tiempo;
     posx = posx + vx*tiempo + (Ax*tiempo*tiempo)/2;
     posy = posy + vy*tiempo + (Ay*tiempo*tiempo)/2;
-    setPos( posx*escala, posy*escala );
     Ax=0;
     Ay=0;
 
@@ -55,6 +55,8 @@ void planetas::iteracion(double tiempo)     //      PARA ACTUALIZAR LAS POSICION
             color = rand()%5;
         }
     }
+
+    setPos( posx*escala, posy*escala );
 }
 
 QRectF planetas::boundingRect() const

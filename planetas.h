@@ -2,6 +2,7 @@
 #define PLANETAS_H
 #include <math.h>
 #include <QPainter>
+#include "stdio.h"
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 
@@ -13,7 +14,7 @@ class planetas: public QGraphicsItem
     double delta=0.1;
 
     int r=20;
-    int color = rand()%5;
+    int color;
 
 public:
     ~planetas();

@@ -6,7 +6,8 @@
 
 class pelotas: public QGraphicsItem
 {
-    int radio = 20;
+    int radio = 30;
+    int count = 0;
 
     double posx;
     double posy;
